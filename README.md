@@ -12,6 +12,4 @@ programming languages for this web page
 
 *css
 
-*php
-
 *javascript
