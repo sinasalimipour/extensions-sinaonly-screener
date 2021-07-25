@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Screenshot Editor</title>
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet"/>
+    <link href="libs/colors/colors.css" rel="stylesheet"/>
+
+    <script src="/libs/jquery.js"></script>
+    <script src="/libs/cropper.js"></script>
+    <script src="/libs/fabric.js"></script>
+    <script src="/libs/fabric-history.js"></script>
+    <script src="/libs/colors/colors.js"></script>
+    <script src="/js/plugin.js"></script>
+    <script src="/libs/jspdf.min.js"></script>
+    <script src="/js/editor.js"></script>
+    <script src="/libs/svgcanvas.js"></script>
+</head>
+<body id="page-editor">
+
+<div id="header">
+    <div class="editor-toolbar" id="toolbar" style=height:50px>
+        <span class="logo"><img src="images/64.png"></span>
+        <div class="tools">
+            <button data-free-drawing="true" tag="highlight" class="button highlight"    status="on"><span></span></button>
+            <button data-free-drawing="false" tag="line"   class="button line"    status="on"><span></span></button>
+            <button data-free-drawing="true" tag="free"      class="button curved-line"  status="on"><span></span></button>
+            <button data-free-drawing="true" tag="spray"     class="button spray"        status="on"><span></span></button>
+            <button data-free-drawing="false" tag="text"      class="button text"         status="on"><span></span></button>
+            <button data-free-drawing="false" tag="rectangle"   class="button square-empty"    status="on"><span></span></button> 
+            <button data-free-drawing="false" tag="full"      class="button square-fill"  status="on"><span></span></button>
+            <button data-free-drawing="false" tag="ellipsis"   class="button oval last"    status="on"><span></span></button> 
+            <button data-free-drawing="false" tag="arrow"     class="button arrow"        status="on"><span></span></button>
+            <button data-free-drawing="false" tag="move"      class="button move"  status="on"><span></span></button>
+            <button data-free-drawing="false" tag="crop"      class="button crop"    status="on"><span></span></button>
+            <button data-free-drawing="false" tag="house"     class="button house"        status="on"><span></span></button>
+        </div>
+        <div class="tools">
+            <button tag="undo" class="button undo disable"><span></span></button>
+            <button tag="redo" class="button last redo disable"><span></span></button>
+        </div>
+        <div class="tools" id="wColorPicker2_3">
+        </div>
+        <div id="LineWidthPicker" class="tools" style="float:left;margin-right:10px;">
+            <button class="button line-size" status="on"><span></span></button>
+            <div class="linePickerOverlay">
+                <hr style=height:1px>
+                <hr style=height:2px>
+                <hr style=height:3px>
+                <hr style=height:5px>
+                <hr style=height:8px>
+                <hr style=height:12px>
+                <hr style=height:16px>
+                <hr style=height:20px>
+                <hr style=height:30px>
+            </div>
+        </div>
+        <div class="buttons">
+            <button class="pdf save-to-pdf">Save as <b>PDF</b></button>
+            <button class="save">Save as <b>PNG</b></button>
+            <!-- <button class="copy">Copy to <b>ClipBoard</b></button> -->
+        </div>
+    </div>
+</div>
+
+<div id="screenshot-area">
+    <div dir="ltr" id="canvasWrapper">
+        <div id="clipper">
+            <img id="imgFixForLong" src="">
+            <canvas style="position:absolute" id="cborder"></canvas>
+            <canvas style="background:url(images/editor-background.png) repeat;display:block" id="canvasId"></canvas>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+

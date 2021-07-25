@@ -1,0 +1,321 @@
+@import url("https://fonts.googleapis.com/css?family=Hind:300,400,500,600,700&subset=latin,cyrillic");
+body {
+  font-family: 'Hind', sans-serif;
+  margin: 0;
+  min-height: 0; }
+
+a, button {
+  cursor: pointer; }
+
+#working {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.7) url(../images/ajax-working-loader.gif) center no-repeat;
+  z-index: 100; }
+
+#message {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: table;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8); }
+  #message .message-container {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    color: red; }
+
+.popup-box {
+  background: #fff;
+  width: 300px;
+  color: #3c3c3c;
+  font-size: 13px; }
+  .popup-box p {
+    padding: 0;
+    margin: 0; }
+
+.window_nav {
+  padding: 0;
+  border-bottom: 1px #e4e4e4 solid; }
+  .window_nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+    .window_nav ul li {
+      padding: 0; }
+      .window_nav ul li:last-child a {
+        border-bottom: none; }
+      .window_nav ul li a {
+        display: flex;
+        align-items: center;
+        color: #000;
+        text-decoration: none;
+        padding: 0 12px;
+        font-size: 14px;
+        background: linear-gradient(#fefefe, #f0f0f0); }
+        .window_nav ul li a:hover {
+          background: #f6f6f6; }
+        .window_nav ul li a span:last-child {
+          padding-top: 3px; }
+      .window_nav ul li .icon {
+        display: block;
+        width: 20px;
+        height: 40px;
+        float: left;
+        margin: 0 10px 0 0; }
+      .window_nav ul li .icon1 {
+        background: url(../images/capture_visible.svg) center/contain no-repeat; }
+      .window_nav ul li .icon2 {
+        background: url(../images/whole_page.svg) center/contain no-repeat; }
+      .window_nav ul li .icon3 {
+        background: url(../images/edit.svg) center/contain no-repeat; }
+      .window_nav ul li .icon4 {
+        background: url(../images/icon4.png) center/contain no-repeat; }
+      .window_nav ul li .icon5 {
+        background: url(../images/icon5.png) center/contain no-repeat; }
+      .window_nav ul li .icon6 {
+        background: url(../images/capture_area.svg) center/contain no-repeat; }
+      .window_nav ul li .icon7 {
+        background: url(../images/icon7.png) center/contain no-repeat; }
+      .window_nav ul li .icon-eye {
+        background: url(../images/history.svg) center/contain no-repeat; }
+
+.window_message {
+  padding: 10px 10px;
+  font-size: 13px;
+  border-bottom: 1px #e4e4e4 solid;
+  cursor: pointer;
+  text-decoration: underline;
+  color: blue; }
+
+#page-editor {
+  background: #eaeaea;
+  min-width: 930px; }
+
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  width: 100%; }
+
+#screenshot-area {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none; }
+
+#canvasWrapper {
+  position: absolute;
+  border: 1px solid #ccc;
+  background: #fff url("../images/editor-background.png") repeat;
+  overflow: auto; }
+  #canvasWrapper .myClose {
+    position: absolute;
+    display: block;
+    height: 30px;
+    width: 30px;
+    background: #ff0000;
+    color: #fff;
+    line-height: 30px;
+    font-size: 12px;
+    border-radius: 15px;
+    text-align: center;
+    border: 1px solid #fff;
+    opacity: 0.7;
+    box-sizing: border-box;
+    font-weight: bold; }
+
+.editor-toolbar {
+  background: #fff;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fff), color-stop(100%, #eaeaea));
+  background: linear-gradient(to bottom, #fff 0%, #eaeaea 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff', endColorstr='#eaeaea', GradientType=0);
+  border-bottom: 1px #adadad solid;
+  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.4);
+  padding: 10px 20px;
+  height: 61px; }
+  .editor-toolbar .logo {
+    float: left;
+    margin-right: 15px; }
+    .editor-toolbar .logo img {
+      height: 48px;
+      width: auto; }
+  .editor-toolbar .tools {
+    float: left;
+    margin: 13px 0 0 7px;
+    height: 30px;
+    border: 1px #dbdbdb solid;
+    border-radius: 3px;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+    background: #fff;
+    background: linear-gradient(to bottom, #fff 0%, #ededed 100%); }
+    .editor-toolbar .tools button {
+      display: block;
+      float: left;
+      height: 30px;
+      width: 30px;
+      padding: 0;
+      margin: 0;
+      position: relative;
+      border: none;
+      border-right: 1px #dbdbdb solid;
+      background: none;
+      box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.2); }
+    .editor-toolbar .tools button.last {
+      border-right: none; }
+    .editor-toolbar .tools button.disable {
+      background: rgba(0, 0, 0, 0.05) !important;
+      cursor: not-allowed; }
+    .editor-toolbar .tools button.on {
+      background: rgba(0, 0, 0, 0.1); }
+    .editor-toolbar .tools button:hover {
+      background: rgba(0, 0, 0, 0.05); }
+    .editor-toolbar .tools button:active {
+      background: rgba(0, 0, 0, 0.1); }
+    .editor-toolbar .tools button span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      height: 30px;
+      width: 30px;
+      background-position: center;
+      background-repeat: no-repeat; }
+    .editor-toolbar .tools button.line span {
+      background-image: url(../images/line-icon.svg); }
+    .editor-toolbar .tools button.move span {
+      background-image: url(../images/hand.svg); }
+    .editor-toolbar .tools button.curved-line span {
+      background-image: url(../images/curved-line-icon.svg); }
+    .editor-toolbar .tools button.spray span {
+      background-image: url(../images/spray-icon.svg); }
+    .editor-toolbar .tools button.highlight span {
+      background-image: url(../images/highlight.svg); }
+    .editor-toolbar .tools button.text span {
+      background-image: url(../images/text-icon.svg); }
+    .editor-toolbar .tools button.square-empty span {
+      background-image: url(../images/square-empty.svg); }
+    .editor-toolbar .tools button.square-fill span {
+      background-image: url(../images/square-fill-icon.svg); }
+    .editor-toolbar .tools button.oval span {
+      background-image: url(../images/oval-icon.svg); }
+    .editor-toolbar .tools button.arrow span {
+      background-image: url(../images/arrow-icon.svg); }
+    .editor-toolbar .tools button.star span {
+      background-image: url(../images/star-icon.png); }
+    .editor-toolbar .tools button.house {
+      display: none; }
+    .editor-toolbar .tools button.house span {
+      background-image: url(../images/house-icon.png); }
+    .editor-toolbar .tools button.crop span {
+      background-image: url(../images/crop-icon.svg); }
+    .editor-toolbar .tools button.undo span {
+      background-image: url(../images/undo-icon.svg); }
+    .editor-toolbar .tools button.redo span {
+      background-image: url(../images/redo-icon.svg); }
+    .editor-toolbar .tools button.line-size span {
+      background-image: url(../images/line-size-icon.svg); }
+    .editor-toolbar .tools button.line-size.on {
+      background: none; }
+    .editor-toolbar .tools button .color {
+      height: 24px;
+      width: 24px;
+      border: 3px #fff solid;
+      border-radius: 3px; }
+
+.buttons {
+  float: right;
+  margin: 14px 0 0 10px; }
+  .buttons button {
+    float: left;
+    margin-left: 10px;
+    border: none;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 12px;
+    width: 120px;
+    height: 36px;
+    border-radius: 3px;
+    font-weight: 300; }
+    .buttons button.save {
+      background-color: #95d307; }
+    .buttons button.pdf {
+      background-color: #100b2e; }
+    .buttons button.copy {
+      background: #bea411; }
+    .buttons button:hover {
+      opacity: .9; }
+
+#LineWidthPicker {
+  position: relative; }
+  #LineWidthPicker hr {
+    width: 20px;
+    border: 0;
+    height: 1px;
+    background-color: gray;
+    margin: 4px; }
+
+.linePickerOverlay {
+  display: none;
+  position: absolute;
+  background: #fff;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
+  border: 1px #aaaaab solid;
+  border-radius: 4px;
+  padding: 5px 0;
+  z-index: 10000;
+  top: 30px; }
+  .linePickerOverlay hr {
+    background-color: #474444 !important;
+    width: 70px !important;
+    margin: 10px !important;
+    cursor: pointer; }
+
+.copy-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.2); }
+  .copy-modal .copy-modal-box {
+    width: 1000px;
+    max-height: 80vh;
+    background: #fff;
+    box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.1);
+    overflow: auto;
+    position: relative; }
+    .copy-modal .copy-modal-box .copy-modal-close {
+      font-size: 20px;
+      position: absolute;
+      right: 10px;
+      top: 8px;
+      z-index: 110; }
+      .copy-modal .copy-modal-box .copy-modal-close:hover {
+        cursor: pointer;
+        color: #333; }
+    .copy-modal .copy-modal-box h2 {
+      text-align: center; }
+    .copy-modal .copy-modal-box img {
+      width: 100%;
+      height: auto; }
+
+

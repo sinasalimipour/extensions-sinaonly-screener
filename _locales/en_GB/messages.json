@@ -1,0 +1,26 @@
+{
+   "allpage": {
+      "message": "full page screenshot"
+   },
+   "captureregion": {
+      "message": "Capture zone"
+   },
+   "description": {
+      "message": "Screen capture of the entire page or any part. Edit screenshots and save as PDF / JPEG / PNG."
+   },
+   "editcontent": {
+      "message": "Edit page"
+   },
+   "history": {
+      "message": "Show image History"
+   },
+   "name": {
+      "message": "page Capture"
+   },
+   "noall": {
+      "message": "Cannot scroll on this page "
+   },
+   "visiblescreenshot": {
+      "message": "Capture visible zone"
+   }
+}
